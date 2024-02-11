@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Bowlby+One&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Alata", sans-serif;
+  color: #ffffff;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(37, 145, 251, 0.98) 0.1%,
+    rgba(0, 7, 128, 1) 99.8%
+  );
+}
+
+@media screen and (max-width: 1400px) {
+  html {
+    font-size: 15.25px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 10.5px;
+  }
+}
+
+@media screen and (max-width: 275px) {
+  html {
+    font-size: 8px;
+  }
+}
