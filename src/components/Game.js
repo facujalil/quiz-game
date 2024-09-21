@@ -4,13 +4,13 @@ import { Context } from "../context/Context";
 import { useNavigate } from "react-router-dom";
 import Countdown from "./Countdown";
 
-function Game({ questions, totalTime }) {
+function Game({ questions }) {
   const { levelCounter, setLevelCounter, setCelebrate } = useContext(Context);
 
   const navigate = useNavigate();
 
   const [countdown, setCountdown] = useState(3);
-  const [timer, setTimer] = useState(totalTime);
+  const [timer, setTimer] = useState(20);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questionAnswered, setQuestionAnswered] = useState({
     status: false,
@@ -58,7 +58,7 @@ function Game({ questions, totalTime }) {
   };
 
   const nextQuestion = () => {
-    setTimer(totalTime);
+    setTimer(20);
     setQuestionAnswered({ status: false, answerIndex: null });
     setQuestionIndex(questionIndex + 1);
   };

@@ -12,7 +12,7 @@ function Medium() {
     }
   }, []);
 
-  return <Game questions={mediumQuestions} totalTime={15} />;
+  return <Game questions={mediumQuestions} />;
 }
 
 export default Medium;

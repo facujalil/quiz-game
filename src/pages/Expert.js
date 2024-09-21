@@ -12,7 +12,7 @@ function Expert() {
     }
   }, []);
 
-  return <Game questions={expertQuestions} totalTime={5} />;
+  return <Game questions={expertQuestions} />;
 }
 
 export default Expert;

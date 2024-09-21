@@ -12,7 +12,7 @@ function Easy() {
     }
   }, []);
 
-  return <Game questions={easyQuestions} totalTime={20} />;
+  return <Game questions={easyQuestions} />;
 }
 
 export default Easy;

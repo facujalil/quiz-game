@@ -12,7 +12,7 @@ function Hard() {
     }
   }, []);
 
-  return <Game questions={hardQuestions} totalTime={10} />;
+  return <Game questions={hardQuestions} />;
 }
 
 export default Hard;
