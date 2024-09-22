@@ -16,7 +16,7 @@ function Countdown({ countdown, setCountdown }) {
     return () => {
       clearInterval(interval);
     };
-  }, [countdown]);
+  }, []);
 
   return (
     <div className="countdown">
