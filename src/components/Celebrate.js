@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import "../css/Celebrate.css";
 import { GameContext } from "../context/GameContext";
+import einstein from "../img/einstein.png";
+import celebration from "../img/celebration.gif";
 
 function Celebrate() {
   const { win, levelCounter } = useContext(GameContext);
@@ -9,7 +11,7 @@ function Celebrate() {
     <div className="win">
       <div className="einstein-img-container">
         <img
-          src={require("../img/einstein.png")}
+          src={einstein}
           alt="Einstein"
           className="animate__animated animate__backInDown"
         />
@@ -20,11 +22,7 @@ function Celebrate() {
     </div>
   ) : (
     <>
-      <img
-        src={require("../img/celebration.gif")}
-        className="celebration"
-        alt="Celebration"
-      />
+      <img src={celebration} className="celebration" alt="Celebration" />
       {levelCounter === 2 ? (
         <p className="level-unlocked animate__animated animate__rubberBand">
           Level medium unlocked!
