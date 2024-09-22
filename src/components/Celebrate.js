@@ -16,24 +16,24 @@ function Celebrate() {
           className="animate__animated animate__backInDown"
         />
       </div>
-      <p className="level-unlocked animate__animated animate__rubberBand">
+      <p className="celebration-message animate__animated animate__rubberBand">
         You win!
       </p>
     </div>
   ) : (
     <>
-      <img src={confetti} className="confetti" alt="Confetti" />
+      <img src={confetti} alt="Confetti" className="confetti" />
       {levelCounter === 2 ? (
-        <p className="level-unlocked animate__animated animate__rubberBand">
-          Level medium unlocked!
+        <p className="celebration-message animate__animated animate__rubberBand">
+          Medium level unlocked!
         </p>
       ) : levelCounter === 3 ? (
-        <p className="level-unlocked animate__animated animate__rubberBand">
-          Level hard unlocked!
+        <p className="celebration-message animate__animated animate__rubberBand">
+          Hard level unlocked!
         </p>
       ) : levelCounter === 4 ? (
-        <p className="level-unlocked animate__animated animate__rubberBand">
-          Level expert unlocked!
+        <p className="celebration-message animate__animated animate__rubberBand">
+          Expert level unlocked!
         </p>
       ) : null}
     </>

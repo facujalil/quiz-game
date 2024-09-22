@@ -1,25 +1,3 @@
-.confetti {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.level-unlocked {
-  width: 85%;
-  font-size: 3.85em;
-  font-family: "Bowlby One", sans-serif;
-  color: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: -8px -8px rgba(0, 7, 128, 1), -4px -4px rgba(0, 7, 128, 1),
-    -2px -2px rgba(0, 7, 128, 1), 8px 8px rgba(0, 7, 128, 1),
-    4px 4px rgba(0, 7, 128, 1), 2px 2px rgba(0, 7, 128, 1);
-}
-
 .win {
   display: flex;
   flex-direction: column;
@@ -37,12 +15,29 @@
   height: 100%;
 }
 
-@media screen and (max-width: 880px) {
-  .level-unlocked {
-    width: 90%;
-    font-size: 3.5em;
-  }
+.celebration-message {
+  width: 85%;
+  font-size: 3.85em;
+  font-family: "Bowlby One", sans-serif;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: -8px -8px rgba(0, 7, 128, 1), -4px -4px rgba(0, 7, 128, 1),
+    -2px -2px rgba(0, 7, 128, 1), 8px 8px rgba(0, 7, 128, 1),
+    4px 4px rgba(0, 7, 128, 1), 2px 2px rgba(0, 7, 128, 1);
+}
 
+.confetti {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 880px) {
   .einstein-img-container {
     width: 90vw;
     height: 40vh;
@@ -50,5 +45,10 @@
 
   .einstein-img-container img {
     object-fit: contain;
+  }
+
+  .celebration-message {
+    width: 90%;
+    font-size: 3.5em;
   }
 }
