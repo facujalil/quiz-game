@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "../css/Celebrate.css";
 import { GameContext } from "../context/GameContext";
 import einstein from "../img/einstein.png";
-import celebration from "../img/celebration.gif";
+import confetti from "../img/confetti.gif";
 
 function Celebrate() {
   const { win, levelCounter } = useContext(GameContext);
@@ -22,7 +22,7 @@ function Celebrate() {
     </div>
   ) : (
     <>
-      <img src={celebration} className="celebration" alt="Celebration" />
+      <img src={confetti} className="confetti" alt="Confetti" />
       {levelCounter === 2 ? (
         <p className="level-unlocked animate__animated animate__rubberBand">
           Level medium unlocked!
