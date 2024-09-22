@@ -1,18 +1,32 @@
 import React, { useContext, useEffect } from "react";
 import "../css/Home.css";
-import { Context } from "../context/Context";
+import { GameContext } from "../context/GameContext";
 import { NavLink } from "react-router-dom";
 import Celebrate from "../components/Celebrate";
 
 function Home() {
-  const { levelCounter, celebrate, setCelebrate } = useContext(Context);
+  const { celebrate, setCelebrate, win, levelCounter } =
+    useContext(GameContext);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (levelCounter < 5) {
+    if (celebrate && !win) {
+      const timeout = setTimeout(() => {
+        setCelebrate(false);
+      }, 3000);
+
+      return () => {
+        clearTimeout(timeout);
+        if (celebrate) {
+          setCelebrate(false);
+        }
+      };
+    }
+
+    return () => {
+      if (celebrate) {
         setCelebrate(false);
       }
-    }, 3000);
+    };
   }, []);
 
   return (

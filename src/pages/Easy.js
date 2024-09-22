@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { Context } from "../context/Context";
+import { GameContext } from "../context/GameContext";
 import Game from "../components/Game";
 import { easyQuestions } from "../data/easyQuestions";
 
 function Easy() {
-  const { levelCounter, setLevelCounter } = useContext(Context);
+  const { levelCounter, setLevelCounter } = useContext(GameContext);
 
   useEffect(() => {
     if (levelCounter > 1) {

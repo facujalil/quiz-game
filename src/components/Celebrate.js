@@ -1,11 +1,24 @@
 import React, { useContext } from "react";
 import "../css/Celebrate.css";
-import { Context } from "../context/Context";
+import { GameContext } from "../context/GameContext";
 
 function Celebrate() {
-  const { levelCounter } = useContext(Context);
+  const { win, levelCounter } = useContext(GameContext);
 
-  return (
+  return win ? (
+    <div className="win">
+      <div className="einstein-img-container">
+        <img
+          src={require("../img/einstein.png")}
+          alt="Einstein"
+          className="animate__animated animate__backInDown"
+        />
+      </div>
+      <p className="level-unlocked animate__animated animate__rubberBand">
+        You win!
+      </p>
+    </div>
+  ) : (
     <>
       <img
         src={require("../img/celebration.gif")}
@@ -24,19 +37,6 @@ function Celebrate() {
         <p className="level-unlocked animate__animated animate__rubberBand">
           Level expert unlocked!
         </p>
-      ) : levelCounter === 5 ? (
-        <div className="win">
-          <div className="einstein-img-container">
-            <img
-              src={require("../img/einstein.png")}
-              alt="Einstein"
-              className="animate__animated animate__backInDown"
-            />
-          </div>
-          <p className="level-unlocked animate__animated animate__rubberBand">
-            You win!
-          </p>
-        </div>
       ) : null}
     </>
   );

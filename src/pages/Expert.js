@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from "react";
-import { Context } from "../context/Context";
+import { GameContext } from "../context/GameContext";
 import Game from "../components/Game";
 import { expertQuestions } from "../data/expertQuestions";
 
 function Expert() {
-  const { levelCounter, setLevelCounter } = useContext(Context);
+  const { win, setWin } = useContext(GameContext);
 
   useEffect(() => {
-    if (levelCounter > 4) {
-      setLevelCounter(4);
+    if (win) {
+      setWin(false);
     }
   }, []);
 

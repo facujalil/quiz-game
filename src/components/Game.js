@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../css/Game.css";
-import { Context } from "../context/Context";
+import { GameContext } from "../context/GameContext";
 import { useNavigate } from "react-router-dom";
 import Countdown from "./Countdown";
 
 function Game({ questions }) {
-  const { levelCounter, setLevelCounter, setCelebrate } = useContext(Context);
+  const { setCelebrate, levelCounter, setLevelCounter, setWin } =
+    useContext(GameContext);
 
   const navigate = useNavigate();
 
@@ -43,10 +44,15 @@ function Game({ questions }) {
       questionIndex + 1 === questions.length
     ) {
       if (correctAnswerCounter === questions.length) {
-        levelUp();
-      } else {
-        restartLevel();
+        completeLevel();
       }
+      const timeout = setTimeout(() => {
+        navigate("/");
+      }, 1500);
+
+      return () => {
+        clearTimeout(timeout);
+      };
     }
   }, [questionAnswered, timer]);
 
@@ -63,18 +69,13 @@ function Game({ questions }) {
     setQuestionIndex(questionIndex + 1);
   };
 
-  const levelUp = () => {
-    setTimeout(() => {
+  const completeLevel = () => {
+    setCelebrate(true);
+    if (levelCounter < 4) {
       setLevelCounter(levelCounter + 1);
-      navigate("/");
-      setCelebrate(true);
-    }, 1500);
-  };
-
-  const restartLevel = () => {
-    setTimeout(() => {
-      navigate("/");
-    }, 1500);
+    } else {
+      setWin(true);
+    }
   };
 
   return (

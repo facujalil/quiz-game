@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./App.css";
-import { Context } from "./context/Context";
+import { GameContext } from "./context/GameContext";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Easy from "./pages/Easy";
@@ -9,7 +9,7 @@ import Hard from "./pages/Hard";
 import Expert from "./pages/Expert";
 
 function App() {
-  const { levelCounter } = useContext(Context);
+  const { levelCounter } = useContext(GameContext);
 
   return (
     <Routes>
