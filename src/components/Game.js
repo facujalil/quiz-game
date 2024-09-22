@@ -59,20 +59,22 @@ function Game({ questions }) {
   const answerQuestion = (correct, index) => {
     setQuestionAnswered({ status: true, answerIndex: index });
     if (correct) {
-      setCorrectAnswerCounter(correctAnswerCounter + 1);
+      setCorrectAnswerCounter(
+        (correctAnswerCounter) => correctAnswerCounter + 1
+      );
     }
   };
 
   const nextQuestion = () => {
     setTimer(20);
     setQuestionAnswered({ status: false, answerIndex: null });
-    setQuestionIndex(questionIndex + 1);
+    setQuestionIndex((questionIndex) => questionIndex + 1);
   };
 
   const completeLevel = () => {
     setCelebrate(true);
     if (levelCounter < 4) {
-      setLevelCounter(levelCounter + 1);
+      setLevelCounter((levelCounter) => levelCounter + 1);
     } else {
       setWin(true);
     }
