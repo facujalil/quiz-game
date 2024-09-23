@@ -4,7 +4,7 @@ import { GameContext } from "../context/GameContext";
 import { useNavigate } from "react-router-dom";
 import Countdown from "./Countdown";
 
-function Game({ questions }) {
+function Game({ questions, previouslyCompletedLevel }) {
   const { setCelebrate, levelCounter, setLevelCounter, setWin } =
     useContext(GameContext);
 
@@ -43,7 +43,10 @@ function Game({ questions }) {
       (questionAnswered.status || timer === 0) &&
       questionIndex + 1 === questions.length
     ) {
-      if (correctAnswerCounter === questions.length) {
+      if (
+        !previouslyCompletedLevel &&
+        correctAnswerCounter === questions.length
+      ) {
         completeLevel();
       }
       const timeout = setTimeout(() => {

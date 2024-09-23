@@ -1,18 +1,19 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { GameContext } from "../context/GameContext";
 import Game from "../components/Game";
 import { mediumQuestions } from "../data/mediumQuestions";
 
 function Medium() {
-  const { levelCounter, setLevelCounter } = useContext(GameContext);
+  const { levelCounter } = useContext(GameContext);
 
-  useEffect(() => {
-    if (levelCounter > 2) {
-      setLevelCounter(2);
-    }
-  }, []);
+  const previouslyCompletedLevel = levelCounter > 2;
 
-  return <Game questions={mediumQuestions} />;
+  return (
+    <Game
+      questions={mediumQuestions}
+      previouslyCompletedLevel={previouslyCompletedLevel}
+    />
+  );
 }
 
 export default Medium;

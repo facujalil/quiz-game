@@ -6,28 +6,27 @@ import Celebrate from "../components/Celebrate";
 import NavItem from "../components/NavItem";
 
 function Home() {
-  const { celebrate, setCelebrate, win, levelCounter } =
+  const { celebrate, setCelebrate, win, setWin, levelCounter } =
     useContext(GameContext);
 
   useEffect(() => {
-    if (celebrate && !win) {
-      const timeout = setTimeout(() => {
-        setCelebrate(false);
-      }, 3000);
-
-      return () => {
-        clearTimeout(timeout);
-        if (celebrate) {
+    if (celebrate) {
+      if (win) {
+        return () => {
           setCelebrate(false);
-        }
-      };
-    }
+          setWin(false);
+        };
+      } else {
+        const timeout = setTimeout(() => {
+          setCelebrate(false);
+        }, 3000);
 
-    return () => {
-      if (celebrate) {
-        setCelebrate(false);
+        return () => {
+          clearTimeout(timeout);
+          setCelebrate(false);
+        };
       }
-    };
+    }
   }, []);
 
   return (
