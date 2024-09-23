@@ -3,6 +3,7 @@ import "../css/Home.css";
 import { GameContext } from "../context/GameContext";
 import { NavLink } from "react-router-dom";
 import Celebrate from "../components/Celebrate";
+import NavItem from "../components/NavItem";
 
 function Home() {
   const { celebrate, setCelebrate, win, levelCounter } =
@@ -37,46 +38,46 @@ function Home() {
         <>
           <h1>Quiz Game</h1>
           <nav>
-            <NavLink to="/easy" className="easy">
+            <NavLink to="/easy" className="level easy">
               <span>Easy</span>
             </NavLink>
 
-            <NavLink
-              to={levelCounter >= 2 ? "/medium" : null}
-              title={levelCounter === 1 ? "Complete level 1" : null}
-              className={levelCounter === 1 ? "medium locked" : "medium"}
+            <NavItem
+              locked={levelCounter === 1}
+              lockedMessage="Complete level 1"
+              to="/medium"
+              className="level medium"
             >
               <span>Medium</span>
-            </NavLink>
+            </NavItem>
 
-            <NavLink
-              to={levelCounter >= 3 ? "/hard" : null}
-              title={
+            <NavItem
+              locked={levelCounter < 3}
+              lockedMessage={
                 levelCounter === 1
                   ? "Complete levels 1 and 2"
-                  : levelCounter <= 2
-                  ? "Complete level 2"
-                  : null
+                  : "Complete level 2"
               }
-              className={levelCounter <= 2 ? "hard locked" : "hard"}
+              to="/hard"
+              className="level hard"
             >
               <span>Hard</span>
-            </NavLink>
-            <NavLink
-              to={levelCounter >= 4 ? "/expert" : null}
-              title={
+            </NavItem>
+
+            <NavItem
+              locked={levelCounter < 4}
+              lockedMessage={
                 levelCounter === 1
                   ? "Complete levels 1, 2 and 3"
-                  : levelCounter <= 2
-                  ? "Complete level 2 y 3"
-                  : levelCounter <= 3
-                  ? "Complete level 3"
-                  : null
+                  : levelCounter === 2
+                  ? "Complete levels 2 and 3"
+                  : "Complete level 3"
               }
-              className={levelCounter <= 3 ? "expert locked" : "expert"}
+              to="/expert"
+              className="level expert"
             >
               <span>Expert</span>
-            </NavLink>
+            </NavItem>
           </nav>
 
           <footer>
